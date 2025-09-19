@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tentang Nazyaa</title>
+  <style>
+    :root{
+      --pink:#ff4da6;
+      --bg:#ffe6f0;
+    }
+    body{
+      margin:0;
+      font-family:"Poppins",sans-serif;
+      background:linear-gradient(180deg,var(--bg),#fff);
+      color:#333;
+      padding:20px;
+    }
+    h2{
+      text-align:center;
+      color:var(--pink);
+      margin-bottom:20px;
+    }
+    .bio-card{
+      background:#fff;
+      border-radius:14px;
+      padding:14px;
+      margin-bottom:16px;
+      box-shadow:0 4px 12px rgba(0,0,0,0.08);
+      display:flex;
+      align-items:flex-start;
+      gap:12px;
+      opacity:0;
+      transform:translateY(20px);
+      transition:all .6s ease;
+    }
+    .bio-card.show{opacity:1; transform:translateY(0);}
+    .bio-img{
+      width:70px; height:70px;
+      border-radius:10px;
+      overflow:hidden;
+      flex-shrink:0;
+      border:2px solid var(--pink);
+    }
+    .bio-img img{
+      width:100%; height:100%; object-fit:cover;
+    }
+    .bio-text{ flex:1; }
+    .bio-key{
+      font-size:14px;
+      font-weight:600;
+      color:var(--pink);
+      margin-bottom:6px;
+    }
+    .bio-val{
+      font-size:14px;
+      color:#111;
+      line-height:1.5;
+    }
+    .bio-val ul{
+      padding-left:18px;
+      margin:4px 0;
+    }
+    .bio-val li{ margin-bottom:4px; }
+    .narrative{
+      margin-bottom:22px;
+      font-size:15px;
+      line-height:1.6;
+      background:#fff;
+      padding:16px;
+      border-radius:14px;
+      box-shadow:0 4px 12px rgba(0,0,0,0.08);
+      opacity:0; transform:translateY(20px); transition:.6s ease;
+    }
+    .narrative.show{opacity:1; transform:translateY(0);}
+    
+   .back-btn {
+  padding: 8px 18px;
+  border-radius: 20px;
+  background: var(--pink);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  transition: all .3s ease;
+  position: fixed;   /* tombol selalu nempel */
+  top: 20px;         /* jarak dari atas */
+  left: 20px;        /* jarak dari kiri */
+  z-index: 9999;     /* biar selalu di atas elemen lain */
+  letter-spacing: 1px;
+}
+
+.back-btn:hover {
+  background: #ff3385;
+  transform: scale(1.05);
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  background: var(--pink);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  z-index: 1000;
+  color: #fff;
+}
+
+.nav-item {
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.nav-title {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+    /* Popup notif ultah */
+    .popup{
+      position:fixed;
+      top:0; left:0; right:0; bottom:0;
+      background:rgba(0,0,0,0.5);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      z-index:1000;
+      backdrop-filter:blur(4px);
+    }
+    .popup-content{
+      background:#fff;
+      border-radius:16px;
+      padding:24px;
+      text-align:center;
+      max-width:300px;
+      box-shadow:0 8px 20px rgba(0,0,0,0.3);
+      animation:zoomIn .4s ease;
+    }
+    .popup h3{margin:0 0 10px; color:var(--pink);}
+    .popup p{font-size:14px; margin-bottom:16px;}
+    .popup button{
+      background:var(--pink);
+      color:#fff;
+      border:none;
+      border-radius:20px;
+      padding:8px 16px;
+      cursor:pointer;
+      font-weight:600;
+    }
+    @keyframes zoomIn{
+      from{transform:scale(.7);opacity:0;}
+      to{transform:scale(1);opacity:1;}
+    }
+    /* Countdown style */
+    .countdown{
+      margin-top:6px;
+      font-size:13px;
+      font-weight:600;
+      color:#ff3385;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Tombol back -->
+  
+  <!-- Navbar atas -->
+<div class="navbar">
+  <a href="index.html" class="nav-item">🏠 Home</a>
+  <span class="nav-title"></span>
+  <a href="index.html" class="nav-item"></a>
+</div>
+  <h2>---------------------------------------------------</h2>
+    
+
+  <h2>🌸Tentang Nazyaa</h2>
+
+  <!-- Narasi singkat -->
+  <div class="narrative">
+  <h3>🌟 Siapa Nazya?</h3>
+  <p>
+    <b>Nazya Imanda</b> — gadis penuh warna dari purwokertoo, dengan segudang nama panggilan unik: 
+    Zyaa. Setiap nama punya ceritanya sendiri, sama kaya Nazya yang selalu punya banyak sisi.
+  </p>
+
+  <h3>💫 Kepribadian</h3>
+  <p>
+    Nazya itu tipikal Sagitarius sejati. Kadang diem di kamar berjam-jam, kadang mendadak jadi petualang 
+    yang gak bisa diam. Baby face-nya bikin keliatan polos, tapi gaya bicaranya yang cepat dengan logat Medan 
+    selalu bikin orang sekitar ngakak atau kaget. Mood swing? Udah pasti. 
+    Tapi justru itu yang bikin Nazyaa seru buat dikenal.
+  </p>
+
+  <h3>🍓 Hobi & Kebiasaan</h3>
+  <p>
+    Ngemil? Wajib. Ngayal random? Sering. Kadang dia bisa asik dengan game, kadang sibuk eksplor hal-hal baru. 
+    Nayza juga suka dance dan punya sisi nyeleneh lewat cosplay ODGJ. Intinya, dia gak pernah benar-benar 
+    bisa ditebak.
+  </p>
+
+  <h3>🌈 Filosofi Hidup</h3>
+  <p>
+    Di balik semua sisi random dan cerianya, Nazyaa punya cara sederhana dalam melihat cinta:
+  </p>
+  <blockquote>
+    "Cinta adalah pelangi."  
+  </blockquote>
+</div>
+
+  <!-- Biodata detail -->
+  <div class="bio-card">
+    <div class="bio-img"><img src="https://files.catbox.moe/fl7ldh.jpg" alt=""></div>
+    <div class="bio-text">
+      <div class="bio-key">Nama lengkap</div>
+      <div class="bio-val">Nazya Imanda</div>
+      <div class="bio-key">Nama panggilan</div>
+      <div class="bio-val">
+        <ul>
+          <li>Zyaa</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="bio-card" id="ulangTahunCard">
+    <div class="bio-img"><img src="https://files.catbox.moe/feleyg.jpg" alt=""></div>
+    <div class="bio-text">
+      <div class="bio-key">Tanggal lahir</div>
+      <div class="bio-val">15 Maret</div>
+      <div class="bio-key">Umur</div>
+      <div class="bio-val">12 Tahun</div>
+      <div class="countdown" id="countdown">Menghitung...</div>
+    </div>
+  </div>
+
+  <div class="bio-card">
+    <div class="bio-img"><img src="https://files.catbox.moe/fl7ldh.jpg" alt=""></div>
+    <div class="bio-text">
+      <div class="bio-key">Zodiak</div>
+      <div class="bio-val">Sagitarius</div>
+      <div class="bio-key">Golongan darah</div>
+      <div class="bio-val">A</div>
+    </div>
+  </div>
+
+  <div class="bio-card">
+    <div class="bio-img"><img src="https://files.catbox.moe/feleyg.jpg" alt=""></div>
+    <div class="bio-text">
+      <div class="bio-key">Fisik</div>
+      <div class="bio-val">
+        <ul>
+          <li>Tinggi: 152 cm</li>
+          <li>Berat: 48 kg</li>
+          <li>Warna kulit: sawo matang</li>
+          <li>Rambut: hitam bondol (kadang panjang)</li>
+          <li>Bentuk wajah: tembem, baby face</li>
+          <li>Mata: hitam/coklat saat kena cahaya</li>
+          <li>Senyum: sipit</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="bio-card">
+    <div class="bio-img"><img src="https://files.catbox.moe/mow9wa.jpg" alt=""></div>
+    <div class="bio-text">
+      <div class="bio-key">Hobi & Kebiasaan</div>
+      <div class="bio-val">
+        <ul>
+          <li>Ngemil kapan aja</li>
+          <li>Ngayal random</li>
+          <li>Dance</li>
+          <li>Cosplay ODGJ</li>
+          <li>Petualang cari hal baru</li>
+        </ul>
+      </div>
+      <div class="bio-key">Skill</div>
+      <div class="bio-val">Dance, cosplay</div>
+    </div>
+  </div>
+
+  <div class="bio-card">
+    <div class="bio-img"><img src="https://files.catbox.moe/n669uv.jpg" alt=""></div>
+    <div class="bio-text">
+      <div class="bio-key">Makanan & Minuman</div>
+      <div class="bio-val">
+        <ul>
+          <li>Makanan favorit: Nila asam manis, durian, mangga</li>
+          <li>Makanan tidak suka: Genjer</li>
+          <li>Minuman favorit: Jus terong belanda, susu stroberi</li>
+          <li>Minuman tidak suka: alkohol, alpukat</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="bio-card">
+    <div class="bio-img"><img src="https://files.catbox.moe/feleyg.jpg" alt=""></div>
+    <div class="bio-text">
+      <div class="bio-key">Favorit lainnya</div>
+      <div class="bio-val">
+        <ul>
+          <li>Buah: durian, mangga</li>
+          <li>Sayur: pakis</li>
+          <li>Hewan: kucing</li>
+          <li>Takut: kodok, katak</li>
+          <li>Warna: hitam, merah, pink</li>
+          <li>Anime: Jujutsu Kaisen (Toji Fushiguro)</li>
+          <li>Penyanyi: Ariana Grande</li>
+          <li>Lagu: Diantara Beribu Bintang</li>
+          <li>Style: baddie, latina vibes</li>
+          <li>Aksesori: kalung, anting, gelang, cincin</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="bio-card">
+    <div class="bio-img"><img src="https://files.catbox.moe/mow9wa.jpg" alt=""></div>
+    <div class="bio-text">
+      <div class="bio-key">Hal random & Impian</div>
+      <div class="bio-val">
+        <ul>
+          <li>Sering manjat pohon mangga</li>
+          <li>Moment paling lucu: jatoh depan umum</li>
+          <li>Moment paling romantis: perhatian kecil</li>
+          <li>Impian: jadi kaya dalam semua hal</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Popup Ulang Tahun -->
+  <div class="popup" id="popupUltah">
+    <div class="popup-content">
+      <h3>🎉 Selamat Ulang Tahun, Nazyaa!</h3>
+      <p>Semoga semua impianmu tercapai, dan hari ini penuh warna seperti pelangi.</p>
+      <button onclick="closePopup()">Tutup</button>
+    </div>
+  </div>
+
+<script>
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.classList.add('show');
+        observer.unobserve(e.target);
+      }
+    });
+  },{threshold:0.1});
+  document.querySelectorAll('.bio-card,.narrative').forEach(el=>observer.observe(el));
+
+  // Countdown Ulang Tahun
+  function updateCountdown(){
+    const now = new Date();
+    const nowWIB = new Date(now.toLocaleString("en-US",{timeZone:"Asia/Jakarta"}));
+    let tahun = nowWIB.getFullYear();
+    const target = new Date(`${tahun}-12-13T00:00:00+07:00`);
+    if(nowWIB > target){ // kalau udah lewat, hitung ke tahun depan
+      tahun++;
+    }
+    const nextUltah = new Date(`${tahun}-12-13T00:00:00+07:00`);
+    const diff = nextUltah - nowWIB;
+    if(diff <= 0){
+      document.getElementById("countdown").innerText = "Hari ini ulang tahun 🎂";
+      showPopup();
+      return;
+    }
+    const days = Math.floor(diff/(1000*60*60*24));
+    const hours = Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+    const mins = Math.floor((diff%(1000*60*60))/(1000*60));
+    const secs = Math.floor((diff%(1000*60))/1000);
+    document.getElementById("countdown").innerText = 
+      `Menuju ultah: ${days}h ${hours}j ${mins}m ${secs}d`;
+  }
+  setInterval(updateCountdown,1000);
+  updateCountdown();
+
+  // Popup
+  function showPopup(){
+    document.getElementById("popupUltah").style.display="flex";
+  }
+  function closePopup(){
+    document.getElementById("popupUltah").style.display="none";
+  }
+</script>
+</body>
+</html>
